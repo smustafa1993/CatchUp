@@ -1,0 +1,85 @@
+What's the game?
+
+The game is going to be called "Catch up!"
+
+The idea behind it is that the game would simulate a moving board/block of buttons containing numbers/letters in random order. The aim of the game is to click on those buttons in the logical order.
+
+The twist is that the player would have to not mistakenly click the wrong button as the whole block is moving. 
+
+
+
+Stories:
+-As a user, I want to see all the buttons in a random order
+-As a user, I want to know how to play the game
+-As a user, I want to know how to start the game
+-As a user, I want to be able to click on the button within a reasonable margin of time
+-As a user, I want to be able to test my dexterity while playing the game
+-As a user, I expect the moving block to behave in a coherant manner
+-As a user, I want to be able how far into the game I am
+-As a user, I want expect the game to give me a feedback on my mistakes
+-As a user, I Want to know how many mistakes I have made
+-As a user, I expect the game to have a readable design and not all is one color and is hard to distinguish elements
+
+
+Psedocode:
+
+display block of buttons and a start button
+IF button is clicked
+	THEN
+	hide start button
+	enable buttons
+	start animation function
+	start display timer function
+	display error counter starting at 0
+
+IF correct button clicked
+	THEN
+	button is color change to green
+	
+ELSE
+	run boardShake function
+	timer -3 seconds
+	error counter+1
+
+IF timer reaches 0
+	THEN
+	display "game over"
+	unhide start button
+	reset board position
+	reset error counter to 0
+
+ELSE IF buttons clicked within time
+	THEN
+	display the error counter
+	display a congrats message
+	display the time he has finished it in
+	display start game button
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
