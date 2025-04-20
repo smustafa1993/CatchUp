@@ -24,16 +24,34 @@ ________________________________________
 
 Screenshots
 •	Default state:
-Attached in the PDF
+
+![image](https://github.com/user-attachments/assets/7459b84e-9d86-4aaf-97b0-3c98216184cf)
+
  
 •	Gameplay
-Attached in the PDF
- 
+
+![image](https://github.com/user-attachments/assets/606a2215-54e0-4353-a748-3693d28dd6f4)
+
+
+
+ ![image](https://github.com/user-attachments/assets/1f91ea50-5221-49ef-9186-28db838a3dd0)
+
+
+ ![image](https://github.com/user-attachments/assets/dd11c064-029c-4b44-abb2-d33c6f96f0d6)
+
+
  
  
 
 •	Win and Lose conditions
-Attached in the PDF
+
+
+![image](https://github.com/user-attachments/assets/622ef9c5-6e1f-47ed-9436-631e070e229e)
+
+
+![image](https://github.com/user-attachments/assets/a1773cae-9ec3-479f-bb98-2e3c24e61cbc)
+
+
  
  
 
