@@ -4,6 +4,7 @@ const gridButtons = document.querySelectorAll('.grid-btn');
 const startButton = document.getElementById('start-btn');
 const gridContainer = document.querySelector('.grid-container');//panel
 const timerElement = document.getElementById('timer');
+const instructions = document.getElementById('instructions');
 
 
 //constants
@@ -73,8 +74,9 @@ function startTimer() {
       updateTimerDisplay();
     } else {
       clearInterval(timer);
-      alert("HAH get good");
+      //alert("HAH get good");
       resetPage();
+      timerElement.textContent="HAH get good";
     }
   }, 1000);
 }
@@ -91,20 +93,33 @@ function reduceTime(seconds) {
   updateTimerDisplay();
 }
 
-//Until here ^ 
+function centerGrid(){
+  const viewportHeight = window.innerHeight;
+const viewportWidth = window.innerWidth;
 
+const containerHeight = gridContainer.offsetHeight;
+const containerWidth = gridContainer.offsetWidth;
+
+gridContainer.style.position = 'absolute';
+gridContainer.style.top = `${(viewportHeight - containerHeight) / 1.75}px`;
+gridContainer.style.left = `${(viewportWidth - containerWidth) / 1.75}px`;
+
+}
 
 function resetPage() {
   clearInterval(timer);
   stopGridMovement();
   enableStartButton();
-  randomizeGrid();
+ // randomizeGrid();
   resetButtons();
   timeLeft = 60;
   timerElement.textContent = "01:00";
   expectedValue = 1;
   correctNumbers = [];
   disableButtons();
+  enableInstructions();
+  centerGrid();
+  
 }
 
 function stopGridMovement() {
@@ -122,6 +137,16 @@ function disableButtons() {
 function enableStartButton() {
   startButton.style.display = 'block';
   startButton.disabled = false;
+}
+
+function enableInstructions(){
+  instructions.disabled = false;
+  instructions.style.display = 'block';
+}
+
+function disableInstructions(){
+  instructions.disabled = true;
+  instructions.style.display='none';  
 }
 
 function disableStartButton() {
@@ -143,7 +168,9 @@ gridButtons.forEach(button => {
 
       if (expectedValue > 9) {
         setTimeout(() => {// so shuffling isnt instant
-          alert("Ayyyy you won lets gooo!");
+          //alert("Ayyyy you won lets gooo!");
+          resetPage();
+          timerElement.textContent="Ayyyy you won lets gooo!";
           expectedValue = 1;
           correctNumbers = [];
           resetButtons();
@@ -180,6 +207,7 @@ gridButtons.forEach(button => {
 
 startButton.addEventListener('click', () => {
   disableStartButton();
+  disableInstructions();
   randomizeGrid();
   expectedValue = 1;
   correctNumbers = [];
