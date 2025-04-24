@@ -13,13 +13,10 @@ Built With
 ________________________________________
 
 How to Play
-1.	Head to CatchUp on GitHub Pages
+1.	Head to <a href="https://smustafa1993.github.io/CatchUp/">CatchUp on GitHub </a> Pages
 2.	Click Start on the main screen.
 3.	Click on the numbers in ascending order.
 ________________________________________
-
-
-
 
 
 Screenshots
@@ -40,9 +37,6 @@ Screenshots
  ![image](https://github.com/user-attachments/assets/dd11c064-029c-4b44-abb2-d33c6f96f0d6)
 
 
- 
- 
-
 •	Win and Lose conditions
 
 
@@ -50,10 +44,6 @@ Screenshots
 
 
 ![image](https://github.com/user-attachments/assets/a1773cae-9ec3-479f-bb98-2e3c24e61cbc)
-
-
- 
- 
 
 
 ________________________________________
