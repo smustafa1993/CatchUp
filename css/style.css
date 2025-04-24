@@ -14,7 +14,7 @@ body {
 
   #timer {
     font-size: 24px;
-    color: white;
+    color: rgb(0, 0, 0);
     margin-bottom: 20px;
     text-align: center;
     width: 100%;
@@ -25,7 +25,7 @@ body {
 
   #instructions {
     font-size: 24px;
-    color: white;
+    color: rgb(1, 1, 1);
     margin-bottom: 20px;
     text-align: left;
     width: 100%;

@@ -77,6 +77,7 @@ function startTimer() {
       //alert("HAH get good");
       resetPage();
       timerElement.textContent="HAH get good";
+      timerElement.style.color="red";
     }
   }, 1000);
 }
@@ -171,6 +172,7 @@ gridButtons.forEach(button => {
           //alert("Ayyyy you won lets gooo!");
           resetPage();
           timerElement.textContent="Ayyyy you won lets gooo!";
+          timerElement.style.color="green";
           expectedValue = 1;
           correctNumbers = [];
           resetButtons();
@@ -213,6 +215,7 @@ startButton.addEventListener('click', () => {
   correctNumbers = [];
   resetButtons();
   enableButtons();
+  timerElement.style.color="black";
   startTimer();
   gridMoveInterval = setInterval(moveGrid, 2000);
 });
