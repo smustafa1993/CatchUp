@@ -2,6 +2,8 @@
 
 const gridButtons = document.querySelectorAll('.grid-btn');
 const startButton = document.getElementById('start-btn');
+const easyButton = document.getElementById('easy-btn');
+const hardButton = document.getElementById('hard-btn');
 const gridContainer = document.querySelector('.grid-container');//panel
 const timerElement = document.getElementById('timer');
 const instructions = document.getElementById('instructions');
@@ -14,6 +16,12 @@ let expectedValue = 1;
 let timer;
 let timeLeft = 60;
 let gridMoveInterval;
+let movementTimer=2000;
+let hardButtonEnabled =false;
+let easyButtonEnabled =false;
+
+//onload
+
 
 
 //functions
@@ -66,6 +74,12 @@ function moveGrid() {// Moving the grid around without messing up the buttons
 function startTimer() {
   clearInterval(timer);
   timeLeft = 60;
+  if(hardButtonEnabled){
+    reduceTime(30);}
+
+    if(easyButtonEnabled){
+      reduceTime(-30);}
+
   updateTimerDisplay();
 
   timer = setInterval(() => {
@@ -111,6 +125,8 @@ function resetPage() {
   clearInterval(timer);
   stopGridMovement();
   enableStartButton();
+  enableEasyButton();
+  enableHardButton();
  // randomizeGrid();
   resetButtons();
   timeLeft = 60;
@@ -139,6 +155,14 @@ function enableStartButton() {
   startButton.style.display = 'block';
   startButton.disabled = false;
 }
+function enableEasyButton() {
+  easyButton.style.display = 'block';
+  easyButton.disabled = false;
+}
+function enableHardButton() {
+  hardButton.style.display = 'block';
+  hardButton.disabled = false;
+}
 
 function enableInstructions(){
   instructions.disabled = false;
@@ -154,6 +178,19 @@ function disableStartButton() {
   startButton.style.display = 'none';
   startButton.disabled = true;
 }
+
+function disableHardButton() {
+  hardButton.style.display = 'none';
+  hardButton.disabled = true;
+}
+
+function disableEasyButton() {
+  easyButton.style.display = 'none';
+  easyButton.disabled = true;
+}
+
+//onload
+disableButtons();
 
 //logic for button clicks
 
@@ -180,12 +217,15 @@ gridButtons.forEach(button => {
           stopGridMovement();
           clearInterval(timer);
           enableStartButton();
+          enableEasyButton();
+          enableHardButton();
         }, 500);
       }
     } else {
       //Wrong buttonselection consequence. Shows red, reduces time by 5 seconds, resets selection
       button.style.backgroundColor = 'red';
-      reduceTime(5);
+      if (hardButtonEnabled){reduceTime(10)}
+      else (reduceTime(5));
 
 
       disableButtons();//DO NOT REMOVE. prevents wrong click bug
@@ -209,6 +249,8 @@ gridButtons.forEach(button => {
 
 startButton.addEventListener('click', () => {
   disableStartButton();
+  disableEasyButton();
+  disableHardButton();
   disableInstructions();
   randomizeGrid();
   expectedValue = 1;
@@ -216,6 +258,37 @@ startButton.addEventListener('click', () => {
   resetButtons();
   enableButtons();
   timerElement.style.color="black";
+  if(hardButtonEnabled){
+    reduceTime(30);
+    movementTimer=1000;}
+   else if(easyButtonEnabled){
+      reduceTime(-30);
+      movementTimer=2500;}
+
+
   startTimer();
-  gridMoveInterval = setInterval(moveGrid, 2000);
+  gridMoveInterval = setInterval(moveGrid, movementTimer);
+});
+
+hardButton.addEventListener('click', () => {
+  
+  if(hardButtonEnabled){
+    hardButton.style.backgroundColor="white";
+    hardButtonEnabled=false;
+    return;
+  }
+  hardButtonEnabled=true;
+  hardButton.style.backgroundColor="green";
+
+});
+
+easyButton.addEventListener('click', () => {
+  
+  if(easyButtonEnabled){
+    easyButton.style.backgroundColor="white";
+    easyButtonEnabled=false;
+    return;
+  }
+  easyButtonEnabled=true;
+  easyButton.style.backgroundColor="green";
 });

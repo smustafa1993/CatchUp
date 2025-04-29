@@ -84,7 +84,47 @@ body {
     z-index: 2;
   }
   
+  .hard-btn-container {
+    display: flex;
+    justify-content: center;
+    width: 45%;
+    position: absolute;
+    bottom:70px;
+    z-index: 2;
+    /* right: 140px; */
+  }
+  
+  .easy-btn-container {
+    display: flex;
+    justify-content: center;
+    width: 65%;
+    position: absolute;
+    bottom: 120px;
+    z-index: 2;
+    /* left: 140px; */
+  }
+  
   #start-btn {
+    padding: 8px 16px;
+    font-size: 14px;
+    background-color: #fff;
+    border: none;
+    box-shadow: 2px 2px 5px #444;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.2s;
+  }
+
+  #hard-btn {
+    padding: 8px 16px;
+    font-size: 14px;
+    background-color: #fff;
+    border: none;
+    box-shadow: 2px 2px 5px #444;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.2s;
+  }
+
+  #easy-btn {
     padding: 8px 16px;
     font-size: 14px;
     background-color: #fff;
@@ -102,6 +142,26 @@ body {
   }
   
   #start-btn:active {
+    background-color: #ddd;
+    transform: scale(1);
+  }
+
+  #easy-btn:hover {
+    background-color: #f1f1f1;
+    transform: scale(1.05);
+  }
+  
+  #easy-btn:active {
+    background-color: #ddd;
+    transform: scale(1);
+  }
+
+  #hard-btn:hover {
+    background-color: #f1f1f1;
+    transform: scale(1.05);
+  }
+  
+  #hard-btn:active {
     background-color: #ddd;
     transform: scale(1);
   }
