@@ -38,7 +38,8 @@ function randomizeGrid() {//function is called after every click of any button i
     const value = numbers[index];
     button.textContent = value;
     button.setAttribute('data-value', value);//assigning new ramdomized set
-    button.style.backgroundColor = correctNumbers.includes(value) ? 'green' : '#fff';
+    if (!hardButtonEnabled){
+    button.style.backgroundColor = correctNumbers.includes(value) ? 'green' : '#fff';}
     //above line is the logic for moving green color w the correct value... took a while to figure out tbh
   });
 }
@@ -260,7 +261,7 @@ startButton.addEventListener('click', () => {
   timerElement.style.color="black";
   if(hardButtonEnabled){
     reduceTime(30);
-    movementTimer=1000;}
+    movementTimer=800;}
    else if(easyButtonEnabled){
       reduceTime(-30);
       movementTimer=2500;}
